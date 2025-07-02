@@ -3,7 +3,6 @@ pipeline:
     any: true
 
   stages:
-    - stage: Checkout
       steps:
         - git:
             url: 'https://github.com/srikrishna206/sandeep.git'
