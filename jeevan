@@ -1,18 +1,23 @@
-pipeline:
-  agent: any
-  stages:
-    - stage: Checkout
-      steps:
-        - checkout:
-            scm:
-              git:
-                url: https://github.com/srikrishna206/sandeep.git
-                branch: main
+pipeline {
+    agent any
 
-    - stage: Build
-      steps:
-        - echo: "Building..."
+    stages {
+        stage('Checkout') {
+            steps {
+                git url: 'https://github.com/srikrishna206/sandeep.git', branch: 'main'
+            }
+        }
 
-    - stage: Deploy
-      steps:
-        - echo: "Deploying..."
+        stage('Build') {
+            steps {
+                echo 'Building...'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying...'
+            }
+        }
+    }
+}
