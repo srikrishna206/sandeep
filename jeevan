@@ -1,18 +1,21 @@
-pipeline:
-  agent: any
-  stages:
-    - stage: Checkout
-      steps:
-        - checkout:
-            scm:
-              git:
-                url: https://github.com/srikrishna206/sandeep.git
-                branch: main
+name: CI Pipeline
 
-    - stage: Build
-      steps:
-        - echo: "Executing build process..."
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
-    - stage: Deploy
-      steps:
-        - echo: "Initiating deployment..."
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Build
+        run: echo 'Building...'
+
+      - name: Deploy
+        run: echo 'Deploying...'
